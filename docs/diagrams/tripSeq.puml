@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant "<<class>>\nDuke" as d
+participant "<<class>>\nParser" as p
+participant "<<class>>\nUi" as ui
+
+loop until user inputs 'quit'
+
+activate d
+d->p : parserUserInput(userInput)
+activate p
+p->p: handleValidCommand("create", inputParams)
+activate p
+return
+p->p: handleCreateTrip(inputParams)
+activate p
+return
+p->p: executeCreateTrip(inputParams)
+activate p
+
+alt inputParams syntax valid
+    opt Trip is Duplicate &\nUser does not want to add
+    p-->d
+    end
+create participant ":Trip" as t
+p->t++
+return
+
+else inputParams syntax Invalid
+
+p->ui: printCreateFormatError()
+activate ui
+return
+end
+return
+end
+@enduml

@@ -1,18 +1,43 @@
-create America 02-02-2021 1.08 1000 yikai,yuzhao,qian,josh,xiyuan
+create /America /02-02-2021 /USD /0.74 /yikai,yuzhao,qian,josh,xiyuan
 open 1
-list
-edit 1 budget 2000
-expense 8.00 food yikai,yuzhao /this is what i want to type
+expense 8.00 breakfast yikai,yuzhao,qian /c a b
 19-10-2021
+yikai
+0
+5
+y
+view filter category breakfast
+view filter description d a c
+list
+edit 1 -exchangerate 1
+expense 24.00 lunch yikai,yuzhao,qian /d a c
+19-10-2021
+qian
+0
+16
+y
+optimize yikai
+expense 48.00 breakfast yikai,yuzhao,qian /d a c
+19-10-2021
+yuzhao
+32
+0
+y
+amount yikai
+amount qian
+amount yuzhao
+view filter category breakfast
+view filter category lunch
+view filter description d a c
+view filter description c a b
+view filter payer josh
+view index 2
 yikai
 equal
 list
 view
-delete expense 2
-delete expense 1
-delete expense 1
-summary
-delete trip 2
-delete trip 1
+delete 2
+delete 1
+delete 1
 summary
 quit

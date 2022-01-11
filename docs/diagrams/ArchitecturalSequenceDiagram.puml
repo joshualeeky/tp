@@ -1,0 +1,40 @@
+@startuml
+!include style.puml
+!include <office/Users/user>
+'https://plantuml.com/sequence-diagram
+
+autonumber
+Actor User as user USER_COLOR
+Participant "Ui" as ui UI_COLOR
+Participant "Parser" as parser LOGIC_COLOR
+Participant "Storage" as storage STORAGE_COLOR
+
+user -[USER_COLOR]> ui : readUserInput("create ...")
+activate ui UI_COLOR
+
+ui -[UI_COLOR]> parser : parseUserInput("create...")
+activate parser LOGIC_COLOR
+
+parser -[LOGIC_COLOR_T2]> parser : handleValidCommand()
+activate parser LOGIC_COLOR_T1
+
+parser -[LOGIC_COLOR]> storage : addNewTrip()
+activate storage STORAGE_COLOR
+
+storage -[STORAGE_COLOR]> storage : Save to file
+activate storage STORAGE_COLOR_T1
+storage --[STORAGE_COLOR]> storage
+deactivate storage
+
+storage --[STORAGE_COLOR]> parser
+deactivate storage
+
+parser --[LOGIC_COLOR_T2]> parser
+deactivate parser
+
+parser --[LOGIC_COLOR]> ui
+deactivate parser
+
+ui--[UI_COLOR]> user
+deactivate ui
+@enduml

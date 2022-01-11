@@ -1,0 +1,28 @@
+@startuml
+!include style.puml
+'https://plantuml.com/component-diagram
+
+Class Expense COLOR_BROWN
+
+Class Person LOGIC_COLOR_T2 {
+name:String
+moneyOwed: HashMap<String, Double>
+optimizedMoneyOwed: HashMap<String, Double>
+
+{method} + setMoneyOwed(Person, double)
+{method} + setOptimizedMoneyOwed(Person)
+}
+
+Class Trip COLOR_ORANGE
+
+show Person members
+
+Expense -right[COLOR_BROWN]-> "*"Person
+Trip -left[COLOR_ORANGE]-> "*"Person
+
+note top
+ Persons in an expense
+  is a subset of Persons in a Trip.
+end note
+
+@enduml

@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor User
+participant ":Parser" as Parser
+participant "{abstract}\n:CommandHandler" as CommandHandler
+participant "{abstract}\n:CommandExecutor" as CommandExecutor
+
+'Parser check for valid input
+loop userInput != Quit
+User -> Parser: userInput
+activate Parser
+Parser -> Parser: parseUserInput
+activate Parser
+Parser -> Parser: checkValidInput
+alt ValidInput
+activate Parser
+Parser -> CommandHandler: handleCommand
+activate CommandHandler
+
+else userInput == Quit || Help || Close
+User <-- Parser: Show relevant output
+
+else
+User <-- Parser: Request for command again
+
+
+deactivate Parser
+deactivate Parser
+deactivate Parser
+end ValidInput
+
+CommandHandler -> CommandExecutor: executeCommand
+
+activate CommandExecutor
+alt invalidInputParameters
+CommandHandler <-- CommandExecutor: Error with input parameters
+User <-- CommandHandler: Error message
+
+else
+CommandExecutor -> : Call relevant functions
+
+alt invalidParameters
+CommandExecutor <-- : Error with input parameters
+CommandHandler <-- CommandExecutor: Error with input parameters
+deactivate CommandExecutor
+User <-- CommandHandler: Error message
+deactivate CommandHandler
+
+else
+User <--  : Show relevant output
+
+end invalidInputParameters
+end invalidParameters
+end loop
+@enduml

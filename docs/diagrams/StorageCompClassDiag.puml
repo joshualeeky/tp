@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide circle
+skinparam classAttributeIconSize 0
+
+class Storage
+class FileStorage
+
+Storage --> FileStorage
+
+class Storage {
+    - {static} listOfTrips : ArrayList<Trip>
+    - {static} openTrip : Trip
+    - {static} lastTrip : Trip
+    - {static} validCommands : ArrayList<String>
+    - {static} availableCurrency : Hashmap<String, String[]>
+
+    + {static} writeToFile()
+    + {static} readFromFile()
+    + {static} createNewFile()
+    - {static} askOverwriteOrClose()
+    + {static} getOpenTrip() : Trip
+    + {static} setOpenTrip()
+    + {static} closeTrip()
+}
+
+class FileStorage {
+    - {static} gson : Gson
+
+    + {static} writeToFile()
+    + {static} readFromFile() : String
+    + {static} newBlankFile()
+    - {static} initializeFileWriter() : FileWriter
+    + {static} initializeGson()
+}
+
+@enduml

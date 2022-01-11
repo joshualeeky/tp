@@ -1,0 +1,20 @@
+@startuml
+
+title Help Command States
+
+start
+
+if (Are there any trips that exist?) then (Yes)
+  if (Is trip opened?) then (Yes)
+  :[In trip] Help;
+  stop
+  else (No)
+  :[Not Opened] Help;
+  stop
+  endif
+else (No)
+  :[No Trips] Help;
+endif
+stop
+
+@enduml

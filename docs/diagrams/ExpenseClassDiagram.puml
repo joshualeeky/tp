@@ -1,0 +1,46 @@
+@startuml
+
+hide circle
+skinparam classAttributeIconSize 0
+
+class "Expense"{
+    - amountSpent : double
+    - description : String
+    - personsList : ArrayList<Person>
+    - category : String
+    - date : LocalDate
+    - payer : Person
+    - amountSplit : HashMap<String, Double>
+    - {static} inputPattern : DateTimeFormatter
+    - {static} outputPattern : DateTimeFormatter
+
+    + Expense(in : String)
+    + promptDate() : LocalDate
+    + toString() : String
+    + getPersonExpense() : String
+    + setAmountSpent(in : String)
+    - checkValidPersons(in : String) : ArrayList<Person>
+    - isDateValid(in : String) : Boolean
+}
+
+
+interface "<<interface>> \n ExpenseSummarizer" {
+    + {static} getIndividualExpenseSummary(in : Person)
+    - {static} roundToLocal(amount : double, currTrip : Trip, categories : HashMap<String, Double>)
+}
+
+class "Person" {
+    - name : String
+    - moneyOwed :  HashMap<String, Double>
+    - optimizedMoneyOwed : HashMap<String, Double>
+
+    + setMoneyOwed(inPerson : Person, amount : double)
+    + getMoneyOwed() : HashMap<String, Double>
+    + setOptimizedMoneyOwed(inPerson : Person)
+}
+
+
+"Expense" ..|> "<<interface>> \n ExpenseSummarizer"
+"Expense" o-- "Person"
+
+@enduml

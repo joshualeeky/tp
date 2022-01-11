@@ -1,0 +1,63 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+'autonumber
+
+activate Storage
+-> Storage: readFromFile(String)
+
+Storage -> FileStorage: readFromFile(String)
+activate FileStorage
+
+break FileNotFoundException
+
+    FileStorage --> Storage: FileNotFoundException
+    Storage -> Storage: createNewFile(String)
+    activate Storage
+    Storage -> FileStorage: newBlankFile(String)
+    FileStorage --> Storage
+    Storage --> Storage
+    deactivate Storage
+
+end
+
+break NoSuchElementException
+    FileStorage --> Storage: NoSuchElementException
+end
+
+FileStorage --> Storage
+
+Storage -> FileStorage: getGson()
+FileStorage --> Storage
+
+Storage -> Storage: fromJson(String, Type)
+activate Storage
+
+break JsonParseException
+
+    Storage -> Storage: askOverwriteOrClose()
+    activate Storage
+
+        alt overwrite
+            Storage -> Storage: createNewFile(String)
+            activate Storage
+            Storage -> FileStorage: newBlankFile(String)
+            FileStorage --> Storage
+            Storage --> Storage
+            deactivate Storage
+        else close
+            <-- Storage: System.exit(1)
+        end
+        Storage --> Storage
+    deactivate Storage
+
+end
+
+Storage --> Storage
+deactivate Storage
+
+
+
+<-- Storage
+
+@enduml

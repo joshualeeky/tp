@@ -1,0 +1,66 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant "{abstract}\n:CommandExecutor" as CommandExecutor
+participant "\n:Trip" as Trip
+participant "\n:Storage" as Storage
+participant "\n:Expense" as Expense
+participant "\n:Ui" as Ui
+participant "\n:LocalDate" as LocalDate
+participant "{abstract}\n:ExpenseSplitter" as ExpenseSplitter
+
+
+activate Ui
+activate Trip
+activate CommandExecutor
+activate Storage
+CommandExecutor -> Trip : executeCreateExpense()
+Trip -> Storage
+Storage -> Storage : checkOpenTrip()
+Storage --> Trip
+Trip --> CommandExecutor
+CommandExecutor -> Expense : Expense()
+Activate Expense
+Expense -> Expense : setAmountSpent
+activate Expense
+Expense --> Expense
+deactivate Expense
+Expense -> Expense : setCategory
+activate Expense
+Expense --> Expense
+deactivate Expense
+Expense -> Expense : promptDate
+activate Expense
+loop Date not valid
+Expense -> Ui : receiveUserInput()
+Ui --> Expense
+end
+alt input date is empty
+activate LocalDate
+Expense -> LocalDate : now()
+LocalDate --> Expense
+else input date not empty
+Expense -> LocalDate : parse()
+LocalDate --> Expense
+end
+deactivate LocalDate
+
+activate ExpenseSplitter
+alt only 1 person involved
+Expense -> ExpenseSplitter : updateOnePersonSpending()
+ExpenseSplitter --> Expense
+else more than 1 person involved
+Expense -> ExpenseSplitter : updateIndividualSpending()
+ExpenseSplitter --> Expense
+end
+deactivate ExpenseSplitter
+Expense --> CommandExecutor
+
+CommandExecutor -> Trip : addExpense()
+CommandExecutor -> Trip : setLastExpense()
+CommandExecutor -> Ui : printExpenseAddedSuccess()
+
+
+
+
+@enduml

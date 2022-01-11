@@ -6,28 +6,167 @@ Welcome to
 /_/    \__,_/\__, /_/  /_/\___/_____/\__,_/\___/_/|_|  
             /____/                                     
 
+No preloaded data found! We have created a file for you.
+A new save file has been created!
 Enter your command: Your trip to America on 02 Feb 2021 has been successfully added!
 Enter your command: You have opened the following trip: 
 America | 02 Feb 2021
-Enter your command: There are no expenses in your trip, please add an expense using the keyword 'expense'.
-Enter your command: Enter your command: Enter date of expense:
-	Press enter to use today's date
-Who paid for the expense?: How much did yikai spend?: Your expense has been added successfully
-Enter your command: 1. this is what i want to type | Cost: 8.00
-Enter your command: this is what i want to type
-date: 2021-10-19
-Amount Spent: 8.00
-People involved: [yikai, yuzhao]
-Category: food
 
-Enter your command: Sorry, no such expense number exists. Please check your expense number and try again.
-Enter your command: Your expense of 8.0 has been successfully removed
-Enter your command: Sorry, no such expense number exists. Please check your expense number and try again.
-Enter your command: This is the summary for your America trip 02 Feb 2021
-Total budget for this trip: 2000.00
-Total expenditure so far: 0.00
-Current budget left for this trip: 2000.00
-Enter your command: Sorry, no such trip number exists. Please check your trip number and try again.
-Enter your command: Your trip to America on 02 Feb 2021 has been successfully removed
-Enter your command: You have not created a trip yet. Please create a trip using the keyword 'create'.
-Enter your command: Goodbye!
+Enter your command: Enter date of expense:
+	Press enter to use today's date
+Who paid for the expense?: Enter "equal" if expense is to be evenly split, enter individual spending otherwise
+There is USD $8.00 left to be assigned. How much did yikai spend?: There is USD $8.00 left to be assigned. How much did yuzhao spend?: Assign the remaining USD $3.00 to qian? (y/n): Your expense has been added successfully!
+Enter your command: 1. 	c a b
+	Date: 19 Oct 2021
+	Amount Spent: USD $8.00
+	People involved:
+		1) yikai, USD $0.00
+		2) yuzhao, USD $5.00
+		3) qian, USD $3.00
+	Payer: yikai
+	Category: breakfast
+
+Enter your command: No matching expenses found.
+Enter your command: List of Expenses: 
+	1. c a b | 19 Oct 2021
+Enter your command: The exchange rate has been changed from 0.74 to 1.0.
+Enter your command: Enter date of expense:
+	Press enter to use today's date
+Who paid for the expense?: Enter "equal" if expense is to be evenly split, enter individual spending otherwise
+There is USD $24.00 left to be assigned. How much did yikai spend?: There is USD $24.00 left to be assigned. How much did yuzhao spend?: Assign the remaining USD $8.00 to qian? (y/n): Your expense has been added successfully!
+Enter your command: Here are the optimized payment transactions:
+yuzhao needs to pay USD $8.00 (SGD $8.00) to yikai
+yuzhao needs to pay USD $13.00 (SGD $13.00) to qian
+Enter your command: Enter date of expense:
+	Press enter to use today's date
+Who paid for the expense?: Enter "equal" if expense is to be evenly split, enter individual spending otherwise
+There is USD $48.00 left to be assigned. How much did yikai spend?: There is USD $16.00 left to be assigned. How much did yuzhao spend?: Assign the remaining USD $16.00 to qian? (y/n): Your expense has been added successfully!
+Enter your command: yikai spent USD $32.00 (SGD $32.00) on the trip so far
+yikai owes USD $27.00 (SGD $27.00) to yuzhao
+qian owes USD $3.00 (SGD $3.00) to yikai
+yikai does not owe anything to josh
+yikai does not owe anything to xiyuan
+Enter your command: qian spent USD $27.00 (SGD $27.00) on the trip so far
+qian owes USD $3.00 (SGD $3.00) to yikai
+qian does not owe anything to yuzhao
+qian does not owe anything to josh
+qian does not owe anything to xiyuan
+Enter your command: yuzhao spent USD $21.00 (SGD $21.00) on the trip so far
+yikai owes USD $27.00 (SGD $27.00) to yuzhao
+yuzhao does not owe anything to qian
+yuzhao does not owe anything to josh
+yuzhao does not owe anything to xiyuan
+Enter your command: 1. 	c a b
+	Date: 19 Oct 2021
+	Amount Spent: USD $8.00
+	People involved:
+		1) yikai, USD $0.00
+		2) yuzhao, USD $5.00
+		3) qian, USD $3.00
+	Payer: yikai
+	Category: breakfast
+
+3. 	d a c
+	Date: 19 Oct 2021
+	Amount Spent: USD $48.00
+	People involved:
+		1) yikai, USD $32.00
+		2) yuzhao, USD $0.00
+		3) qian, USD $16.00
+	Payer: yuzhao
+	Category: breakfast
+
+Enter your command: 2. 	d a c
+	Date: 19 Oct 2021
+	Amount Spent: USD $24.00
+	People involved:
+		1) yikai, USD $0.00
+		2) yuzhao, USD $16.00
+		3) qian, USD $8.00
+	Payer: qian
+	Category: lunch
+
+Enter your command: 2. 	d a c
+	Date: 19 Oct 2021
+	Amount Spent: USD $24.00
+	People involved:
+		1) yikai, USD $0.00
+		2) yuzhao, USD $16.00
+		3) qian, USD $8.00
+	Payer: qian
+	Category: lunch
+
+3. 	d a c
+	Date: 19 Oct 2021
+	Amount Spent: USD $48.00
+	People involved:
+		1) yikai, USD $32.00
+		2) yuzhao, USD $0.00
+		3) qian, USD $16.00
+	Payer: yuzhao
+	Category: breakfast
+
+Enter your command: 1. 	c a b
+	Date: 19 Oct 2021
+	Amount Spent: USD $8.00
+	People involved:
+		1) yikai, USD $0.00
+		2) yuzhao, USD $5.00
+		3) qian, USD $3.00
+	Payer: yikai
+	Category: breakfast
+
+Enter your command: No matching expenses found.
+Enter your command: Please format your inputs as follows: 
+view filter [category, description, payer, person, date] [search keyword]
+Enter your command: Sorry, we didn't recognize your entry. Please try again, or enter help to learn more.
+Enter your command: Sorry, we didn't recognize your entry. Please try again, or enter help to learn more.
+Enter your command: List of Expenses: 
+	1. c a b | 19 Oct 2021
+	2. d a c | 19 Oct 2021
+	3. d a c | 19 Oct 2021
+Enter your command: List of all Expenses in detail: 
+1. 	c a b
+	Date: 19 Oct 2021
+	Amount Spent: USD $8.00
+	People involved:
+		1) yikai, USD $0.00
+		2) yuzhao, USD $5.00
+		3) qian, USD $3.00
+	Payer: yikai
+	Category: breakfast
+
+2. 	d a c
+	Date: 19 Oct 2021
+	Amount Spent: USD $24.00
+	People involved:
+		1) yikai, USD $0.00
+		2) yuzhao, USD $16.00
+		3) qian, USD $8.00
+	Payer: qian
+	Category: lunch
+
+3. 	d a c
+	Date: 19 Oct 2021
+	Amount Spent: USD $48.00
+	People involved:
+		1) yikai, USD $32.00
+		2) yuzhao, USD $0.00
+		3) qian, USD $16.00
+	Payer: yuzhao
+	Category: breakfast
+
+Enter your command: Your expense of USD $24.00 has been successfully removed.
+Enter your command: Your expense of USD $8.00 has been successfully removed.
+Enter your command: Your expense of USD $48.00 has been successfully removed.
+Enter your command: yikai has spent USD $0.00 (SGD $0.00) on 0 expenses on the following categories:
+
+yuzhao has spent USD $0.00 (SGD $0.00) on 0 expenses on the following categories:
+
+qian has spent USD $0.00 (SGD $0.00) on 0 expenses on the following categories:
+
+josh has spent USD $0.00 (SGD $0.00) on 0 expenses on the following categories:
+
+xiyuan has spent USD $0.00 (SGD $0.00) on 0 expenses on the following categories:
+
+Enter your command: Exiting the program now. Goodbye!

@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+'autonumber
+activate Storage
+-> Storage: writeToFile(String)
+
+Storage -> FileStorage: getGson()
+activate FileStorage
+FileStorage --> Storage
+Storage -> Storage: toJson(ArrayList<Trip>)
+activate Storage
+Storage --> Storage
+deactivate Storage
+
+Storage -> FileStorage: writeToFile(String, String)
+
+FileStorage -> FileStorage: initializeFileWriter(String)
+activate FileStorage
+
+FileStorage --> FileStorage
+deactivate FileStorage
+
+FileStorage --> Storage
+deactivate FileStorage
+
+<-- Storage
+
+@enduml

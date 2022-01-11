@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide circle
+skinparam classAttributeIconSize 0
+
+class Trip
+class Expense
+class Person
+class Storage
+class CommandExecutor
+class Ui
+
+class Trip {
+    -location : String
+    -dateOfTrip : LocalDate
+    -exchangeRate : double
+    -foreignCurrency : String
+    -foreignCurrencyFormat : String
+    -foreignCurrencySymbol : String
+    -listOfExpenses : ArrayList<Expense>
+    -listOfPersons : ArrayList<Person>
+
+    +getFilteredExpenses(expenseCategory : String, expenseAttribute : String)
+    +getDateOfTripString() : String
+    +setDateOfTrip(dateOfTrip : String)
+    +setExchangeRate(exchangeRateString : String)
+    +setForeignCurrency(foreignCurrency : String)
+    +setListOfPersons(listOfPersons : ArrayList<Person>)
+    +addExpense(expense : Expense)
+    -splitPeople(peopleChained : String) : ArrayList<Person>
+}
+
+Trip --* "*" Expense : contains the list of >
+Trip --* "*" Person : contains the list of >
+
+Storage <--> "*" Trip : contains the list of >
+
+Trip --> Ui : prints messages >
+Ui --> Trip : receives user input >
+
+Note left of Ui : Receiving user input only occurs when\nthere is erroneous user input in the\noriginal input
+
+CommandExecutor --> Trip : can create, edit and delete >
+
+
+@enduml
